@@ -7,7 +7,7 @@ html {
 }
 
 #desktop {
-    background-image: url('/assets/image/hero_pc.jpg');
+    background-image: url('../image/hero_pc.jpg');
     /* 배경 이미지 경로를 확인하세요 */
     background-size: cover;
     height: 100%;
