@@ -1,0 +1,374 @@
+body,
+html {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#desktop {
+    background-image: url('/assets/image/hero_pc.jpg');
+    /* 배경 이미지 경로를 확인하세요 */
+    background-size: cover;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 10px;
+    flex-direction: column;
+    /* 세로 정렬 */
+}
+
+.icon {
+    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* 아이콘 내의 내용을 중앙 정렬합니다. */
+    width: 100px;
+    margin: 10px;
+    text-align: center;
+    /* 텍스트를 중앙 정렬합니다. */
+    color: white;
+}
+
+.icon img {
+    width: 60px;
+    /* 이미지의 너비를 조정합니다. */
+    height: 60px;
+    /* 이미지의 높이를 조정합니다. */
+    margin-bottom: 5px;
+    /* 이미지와 텍스트 사이의 간격을 조정합니다. */
+}
+
+.icon span {
+    display: block;
+    margin-top: 5px;
+    /* 텍스트 상단의 간격을 조정합니다. */
+}
+
+#popup {
+    position: absolute;
+    top: 50px;
+    /* 위치 조정 */
+    left: 50%;
+    /* 위치 조정 */
+    transform: translateX(-50%);
+    /* 중앙 정렬 */
+
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    display: block;
+    z-index: 10;
+    /* 팝업이 초기에 보이도록 설정 */
+}
+
+.popup {
+    width: 400px;
+    background: linear-gradient(to right, #18191a, #4a91ff);
+    border-radius: 25px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: white;
+    position: relative;
+    font-family: 'Arial', sans-serif;
+}
+
+.popup-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.popup-icon {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    padding: 5px;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.popup-title {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.popup-content {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.popup-btn {
+    width: 50px;
+    border: none;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 15px;
+    padding: 5px 0;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    display: block;
+    text-align: center;
+    margin: auto;
+}
+
+.popup-btn:hover {
+    background: rgba(255, 255, 255, 0.35);
+}
+
+/* 팝업 닫기 함수에 대한 스타일 */
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+}
+
+
+#taskbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    /* 반투명 검정색 배경 */
+    height: 50px;
+    /* 작업 표시줄의 높이 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    /* 좌우 여백 설정 */
+    color: #fff;
+    font-size: 12px;
+    /* 글꼴 크기 조정 */
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+    /* 그림자 추가 */
+}
+
+.taskbar-item {
+    display: inline-flex;
+    align-items: center;
+    margin: 0 10px;
+    color: white;
+    /* 아이콘들 사이의 좌우 여백 */
+    padding: 0 10px;
+}
+
+.taskbar-item#weather span {
+    margin-left: 5px;
+    /* 아이콘과 텍스트 간격 조정 */
+}
+
+.taskbar-item#time,
+.taskbar-item#language {
+    margin-left: auto;
+    /* 오른쪽 정렬을 위한 설정 */
+}
+
+.taskbar-item img {
+    height: 30px;
+    /* 작업 표시줄 아이콘의 높이 */
+    color: #fff;
+    width: 30px;
+    /* 아이콘의 너비 조정 */
+    margin-right: 5px;
+    /* 아이콘 오른쪽 마진 조정 */
+}
+
+.taskbar-item span {
+    font-size: 12px;
+    /* 텍스트 크기 조정 */
+    line-height: 1.2;
+    /* 줄 간격 조정 */
+    color: white;
+    /* 텍스트 색상 변경 */
+}
+
+/* 날씨 위젯을 왼쪽에 정렬 */
+.taskbar-item#weather {
+    display: flex;
+    /* 정렬을 위해 flexbox 사용 */
+    align-items: center;
+    /* 항목을 수직으로 중앙 정렬 */
+}
+
+#flutter-info {
+    margin-left: auto;
+}
+
+
+/* 날씨 아이콘과 텍스트 */
+#weather {
+    display: flex;
+    align-items: center;
+}
+
+.weather-temp {
+    margin-right: 5px;
+    /* 텍스트 마진 조정 */
+}
+
+/* 시간 표시 */
+#time {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.time {
+    font-weight: bold;
+    /* 시간에 대한 글꼴 무게 조정 */
+}
+
+.date {
+    font-size: 10px;
+    /* 날짜 글꼴 크기 조정 */
+}
+
+.taskbar__right {
+    display: flex;
+}
+
+/* 언어 설정 */
+#language {
+    margin-left: 20px;
+    /* 좌측 마진 조정 */
+    font-weight: bold;
+    /* 글꼴 무게 조정 */
+}
+
+
+
+#weather svg {
+    width: 24px;
+    /* 날씨 아이콘 크기 변경 */
+    height: 24px;
+    /* 날씨 아이콘 크기 변경 */
+    fill: #fff;
+}
+
+
+
+
+/* .icon {
+    display: inline-block;
+    width: 100px;
+    margin: 10px;
+    text-align: center;
+    color: white;
+}
+
+.icon img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 5px;
+    display: flex;
+}
+
+.icon span {
+    display: block;
+    margin-top: 5px;
+} */
+
+/* popup */
+.popup-view {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 1200px;
+    /* max-width: 1200px; 반응형으로 바꾸기 */
+    height: 780px;
+    background-color: #1C1B1F;
+    border: 1px solid #fff;
+    border-radius: 15px;
+    padding: 20px;
+    display: none;
+    justify-content: space-between;
+}
+
+.popup-view h3 {
+    font-size: 30px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #fff;
+    color: #fff;
+    padding-bottom: 15px;
+}
+
+.popup-close {
+    position: absolute;
+    right: -38px;
+    top: 0px;
+    transform: translateX(-50%);
+    /* background-color: #0a4288; */
+    fill: #fff;
+    padding: 8px 20px;
+}
+
+/* popup__cont1 */
+
+.popup__cont1 img {
+    width: 570px;
+    height: 285px;
+}
+
+.popup__inner {
+    position: relative;
+}
+
+.popup__cont1 {
+    position: relative;
+}
+
+.background-image {
+    width: 100%;
+    /* 이미지 크기를 조절합니다. */
+    display: block;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 0;
+    /* 이미지 위쪽에 오도록 설정합니다. */
+    left: 0;
+    /* 이미지 왼쪽에 맞춥니다. */
+    width: 100%;
+    /* 부모 컨테이너의 전체 너비를 차지하도록 설정합니다. */
+    height: 100%;
+    /* 부모 컨테이너의 전체 높이를 차지하도록 설정합니다. */
+    display: flex;
+    align-items: center;
+    /* 세로 중앙 정렬 */
+    justify-content: center;
+    /* 가로 중앙 정렬 */
+    color: white;
+    /* 텍스트 색상을 설정합니다. */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* 이미지 위에 반투명 오버레이를 추가합니다. */
+}
+
+.youtube-icon {
+    /* SVG 아이콘 크기 조정이 필요하면 여기에 스타일을 추가합니다. */
+}
+
+.text {
+    text-align: center;
+    /* 텍스트를 가운데 정렬합니다. */
+}
+
+.text h4 {
+    margin: 0;
+    /* 필요에 따라 마진을 조정합니다. */
+}
+
+.text span,
+.text p {
+    /* 추가적인 스타일링을 여기에 추가합니다. */
+}
