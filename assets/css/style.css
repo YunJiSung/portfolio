@@ -1,3 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
 body,
 html {
     height: 100%;
@@ -312,63 +326,80 @@ html {
     padding: 8px 20px;
 }
 
-/* popup__cont1 */
+/* card */
 
-.popup__cont1 img {
-    width: 570px;
-    height: 285px;
+.popup__contents {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    overflow: auto;
+    height: 700px;
 }
 
-.popup__inner {
-    position: relative;
+.card {
+    width: 49.2%;
+    margin-bottom: 70px;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+
 }
 
-.popup__cont1 {
-    position: relative;
-}
-
-.background-image {
-    width: 100%;
-    /* 이미지 크기를 조절합니다. */
-    display: block;
-}
-
-.overlay-text {
-    position: absolute;
-    top: 0;
-    /* 이미지 위쪽에 오도록 설정합니다. */
-    left: 0;
-    /* 이미지 왼쪽에 맞춥니다. */
-    width: 100%;
-    /* 부모 컨테이너의 전체 너비를 차지하도록 설정합니다. */
-    height: 100%;
-    /* 부모 컨테이너의 전체 높이를 차지하도록 설정합니다. */
+.card__top {
     display: flex;
     align-items: center;
-    /* 세로 중앙 정렬 */
-    justify-content: center;
-    /* 가로 중앙 정렬 */
-    color: white;
-    /* 텍스트 색상을 설정합니다. */
-    background-color: rgba(0, 0, 0, 0.5);
-    /* 이미지 위에 반투명 오버레이를 추가합니다. */
+    margin-bottom: 10px;
 }
 
-.youtube-icon {
-    /* SVG 아이콘 크기 조정이 필요하면 여기에 스타일을 추가합니다. */
+.card-image-container {}
+
+.card-image-container img {
+    width: 100%;
+    vertical-align: top;
 }
 
-.text {
-    text-align: center;
-    /* 텍스트를 가운데 정렬합니다. */
+.card-image {
+
+
+    widows: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    /* Maintain aspect ratio, but fill the space */
 }
 
-.text h4 {
+.card-content {
+
+    text-align: left;
+}
+
+.card-title {
     margin: 0;
-    /* 필요에 따라 마진을 조정합니다. */
+    margin-bottom: 1px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
 }
 
-.text span,
-.text p {
-    /* 추가적인 스타일링을 여기에 추가합니다. */
+.card-subtitle {
+    margin: 0;
+    margin-bottom: 5px;
+    font-size: 15px;
+    color: #fff;
+}
+
+.card-description {
+    margin: 0;
+    font-size: 10px;
+    color: #fff;
+}
+
+.card .icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 10px 0 0;
+}
+
+.card .icon img {
+    border-radius: 10px;
+    width: 100%;
+    vertical-align: top;
 }
