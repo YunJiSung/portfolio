@@ -41,26 +41,25 @@ html {
     flex-direction: column;
     align-items: center;
     /* 아이콘 내의 내용을 중앙 정렬합니다. */
-    width: 100px;
-    margin: 10px;
+    width: 60px;
+    height: 80px;
     text-align: center;
     /* 텍스트를 중앙 정렬합니다. */
     color: white;
+    margin-bottom: 20px;
+}
+
+.icon>a {
+    color: #fff;
 }
 
 .icon img {
     width: 60px;
-    /* 이미지의 너비를 조정합니다. */
     height: 60px;
-    /* 이미지의 높이를 조정합니다. */
-    margin-bottom: 5px;
-    /* 이미지와 텍스트 사이의 간격을 조정합니다. */
 }
 
 .icon span {
     display: block;
-    margin-top: 5px;
-    /* 텍스트 상단의 간격을 조정합니다. */
 }
 
 #popup {
@@ -350,7 +349,9 @@ html {
     margin-bottom: 10px;
 }
 
-.card-image-container {}
+.card__top .icon img {
+    background-color: #fff;
+}
 
 .card-image-container img {
     width: 100%;

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>일정 선택 달력</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .calendar-container {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .calendar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .month-navigation {
+            margin: 20px;
+        }
+
+        .days-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+        }
+
+        .day {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+        }
+
+        .day:not(.empty):hover {
+            cursor: pointer;
+            background-color: #e3e3e3;
+        }
+
+        .selected {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .time-slot {
+            padding: 5px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .time-slot:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="calendar-container">
+        <div class="calendar">
+            <div class="month-navigation">
+                <button id="prev-month">&lt;</button>
+                <span id="month-year"></span>
+                <button id="next-month">&gt;</button>
+            </div>
+            <div class="days-grid">
+                <!-- 자바스크립트로 일자 생성 -->
+            </div>
+        </div>
+        <div class="time-slots">
+            <!-- 시간 슬롯은 나중에 자바스크립트로 생성됩니다 -->
+        </div>
+    </div>
+
+    <script>
+        const daysGrid = document.querySelector('.days-grid');
+        const monthYearLabel = document.getElementById('month-year');
+        let selectedDate = null;
+
+        let currentMonth = new Date().getMonth();
+        let currentYear = new Date().getFullYear();
+
+        function generateCalendarDays(month, year) {
+            daysGrid.innerHTML = '';
+            const firstDayOfMonth = new Date(year, month, 1).getDay();
+            const numberOfDaysInMonth = new Date(year, month + 1, 0).getDate();
+
+            monthYearLabel.textContent = `${year}년 ${month + 1}월`;
+
+            for (let i = 0; i < firstDayOfMonth; i++) {
+                const emptyCell = document.createElement('div');
+                emptyCell.classList.add('day', 'empty');
+                daysGrid.appendChild(emptyCell);
+            }
+
+            for (let day = 1; day <= numberOfDaysInMonth; day++) {
+                const dayCell = document.createElement('div');
+                dayCell.classList.add('day');
+                dayCell.textContent = day;
+                dayCell.addEventListener('click', () => selectDay(day, month, year));
+                daysGrid.appendChild(dayCell);
+            }
+        }
+
+        function selectDay(day, month, year) {
+            const previouslySelected = document.querySelector('.selected');
+            if (previouslySelected) {
+                previouslySelected.classList.remove('selected');
+            }
+
+            const allDays = document.querySelectorAll('.day');
+            const dayIndex = [...allDays].findIndex(element => element.textContent == day.toString());
+            allDays[dayIndex].classList.add('selected');
+
+            selectedDate = new Date(year, month, day);
+            generateTimeSlots(selectedDate);
+        }
+
+        function generateTimeSlots(date) {
+            const timeSlotsContainer = document.querySelector('.time-slots');
+            timeSlotsContainer.innerHTML = '';
+            for (let hour = 0; hour < 24; hour++) {
+                const time = hour.toString().padStart(2, '0') + ':00';
+                const timeSlot = document.createElement('div');
+                timeSlot.classList.add('time-slot');
+                timeSlot.textContent = time;
+                timeSlot.addEventListener('click', () => alert(`일정이 ${date.toDateString()} ${time}에 예약되었습니다.`));
+                timeSlotsContainer.appendChild(timeSlot);
+            }
+        }
+        // 시간 슬롯 생성 함수에 내용 입력 기능 추가
+        function generateTimeSlots(date) {
+            const timeSlotsContainer = document.querySelector('.time-slots');
+            timeSlotsContainer.innerHTML = '';
+            for (let hour = 0; hour < 24; hour++) {
+                const time = hour.toString().padStart(2, '0') + ':00';
+                const timeSlot = document.createElement('div');
+                timeSlot.classList.add('time-slot');
+                timeSlot.textContent = time;
+                timeSlot.addEventListener('click', function () {
+                    const eventDescription = prompt('일정 내용을 입력하세요:', '회의 예정');
+                    if (eventDescription !== null && eventDescription.trim() !== '') {
+                        // 여기서 예약 정보를 저장하거나 처리할 수 있습니다.
+                        // 예를 들어, 로컬 스토리지에 저장하거나 서버로 전송할 수 있습니다.
+                        alert(`일정이 ${date.toDateString()} ${time}에 예약되었습니다.\n내용: ${eventDescription}`);
+                    }
+                });
+                timeSlotsContainer.appendChild(timeSlot);
+            }
+        }
+
+        document.getElementById('prev-month').addEventListener('click', () => {
+            if (currentMonth === 0) {
+                currentMonth = 11;
+                currentYear -= 1;
+            } else {
+                currentMonth -= 1;
+            }
+            generateCalendarDays(currentMonth, currentYear);
+        });
+
+        document.getElementById('next-month').addEventListener('click', () => {
+            if (currentMonth === 11) {
+                currentMonth = 0;
+                currentYear += 1;
+            } else {
+                currentMonth += 1;
+            }
+            generateCalendarDays(currentMonth, currentYear);
+        });
+
+        generateCalendarDays(currentMonth, currentYear);
+    </script>
+</body>
+
+</html>
+
+<!-- mongodb -->
+<!-- const express = require('express');
+const MongoClient = require('mongodb').MongoClient;
+const app = express();
+const port = 3000;
+
+// 몽고DB URI
+const uri = "your_mongodb_uri_here";
+
+app.use(express.json());
+
+// 예약 데이터를 가져오는 엔드포인트
+app.get('/reservations', async (req, res) => {
+  const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+  try {
+    await client.connect();
+    const collection = client.db("test").collection("reservations");
+    const reservations = await collection.find({}).toArray();
+    res.send(reservations);
+  } finally {
+    await client.close();
+  }
+});
+
+// 새 예약을 저장하는 엔드포인트
+app.post('/reservations', async (req, res) => {
+  const newReservation = req.body; // 예약 데이터는 요청의 본문에서 가져옵니다.
+  
+  const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+  try {
+    await client.connect();
+    const collection = client.db("test").collection("reservations");
+    await collection.insertOne(newReservation);
+    res.send({ status: 'success', message: 'Reservation saved' });
+  } catch (error) {
+    res.send({ status: 'error', message: error.message });
+  } finally {
+    await client.close();
+  }
+});
+
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}/`);
+}); -->
