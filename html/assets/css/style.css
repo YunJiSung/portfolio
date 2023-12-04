@@ -382,41 +382,135 @@ html {
     vertical-align: top;
 }
 
-/* style.css */
-body {
-    display: flex;
+/* 추가: 달력 팝업을 위한 스타일 */
+.calendar-popup {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
 }
 
-.calculator {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    background-color: #fff;
+.calendar-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
 
-#display {
-    width: 100%;
+/* 달력 스타일 */
+/* .calendar-header {
+    text-align: center;
     margin-bottom: 10px;
-    text-align: right;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
 }
 
-.buttons button {
-    width: 20%;
-    padding: 10px;
-    margin: 2px;
-    border: 1px solid #ccc;
+.weekdays {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    background-color: #ddd;
+}
+
+.days {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.days li {
+    width: calc(100% / 7);
+    text-align: center;
+    margin-bottom: 5px;
+} */
+
+.calendar-container {
+    max-width: 300px;
+    margin: 20px auto;
+    background: white;
     border-radius: 5px;
-    background-color: #e0e0e0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-header {
+    background: #1e90ff;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.calendar-header h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    visibility: hidden;
+    /* Hide the static month and year title */
+}
+
+.select-container {
+    text-align: center;
+    margin: 10px 0;
+}
+
+select {
+    padding: 5px;
+    margin-right: 5px;
+}
+
+.calendar-body {
+    padding: 10px;
+}
+
+.weekdays {
+    background: #ddd;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+.weekdays li {
+    text-align: center;
+    font-weight: bold;
+    flex: 1;
+}
+
+.days {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.days li {
+    width: calc(100% / 7);
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.btn-container {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
     cursor: pointer;
 }
 
-.buttons button:hover {
-    background-color: #d0d0d0;
+.button:focus {
+    outline: none;
 }

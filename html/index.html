@@ -5,26 +5,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
     <div id="desktop">
         <!-- 아이콘들 -->
-        <div class="icon" id="icon-projects"><img src="assets/image/calendar.png" alt="Projects"><span>Projects</span>
+        <div class="icon" id="icon-calendar"><img src="./assets/image/calendar.png" alt="Projects"><span>Projects</span>
         </div>
-        <div class="icon" id="icon-chrome"><img src="assets/image/chrome.png" alt="macOS"><span>chrome</span></div>
+        <div class="icon" id="icon-chrome"><img src="./assets/image/chrome.png" alt="macOS"><span>chrome</span></div>
         <div class="icon" id="icon-resume"><a href="https://github.com/YunJiSung/YunJiSung" target="_blank"><img
-                    src="assets/image/github.png" alt="Résumé"><span>Github</span></a></div>
-        <div class="icon" id="icon-projects"><a href="mailto:capitaljs10@gmail.com"><img src="assets/image/gmail.png"
+                    src="./assets/image/github.png" alt="Résumé"><span>Github</span></a></div>
+        <div class="icon" id="icon-projects"><a href="mailto:capitaljs10@gmail.com"><img src="./assets/image/gmail.png"
                     alt="Projects"><span>Mail</span></a>
         </div>
-        <div class="icon" id="icon-linkedin"><img src="assets/image/linkedin.png" alt="macOS"><span>linkedin</span>
+        <div class="icon" id="icon-linkedin"><img src="./assets/image/linkedin.png" alt="macOS"><span>linkedin</span>
         </div>
-        <div class="icon" id="icon-resume"><img src="assets/image/pdf01.png" alt="Résumé"><span>Résumé</span></div>
+        <div class="icon" id="icon-resume"><img src="./assets/image/pdf01.png" alt="Résumé"><span>Résumé</span></div>
 
 
         <!-- 추가 아이콘들 -->
+
+        <!-- 달력 팝업 -->
+        <div id="calendarPopup" class="calendar-popup">
+            <div class="calendar-container">
+                <div class="select-container">
+                    <select id="monthDropdown"></select>
+                    <select id="yearDropdown"></select>
+                </div>
+                <div id="calendar"></div>
+                <button onclick="toggleCalendarPopup()">Close</button>
+            </div>
+        </div>
+        <!-- 달력 팝업 -->
+        <!-- <div id="calendarPopup" class="calendar-popup">
+            <div class="calendar-container">
+                <div class="calendar-header">
+                    <h2 id="monthAndYear"></h2>
+                </div>
+                <div class="calendar-body">
+                    <ul class="weekdays">
+                        <li>Su</li>
+                        <li>Mo</li>
+                        <li>Tu</li>
+                        <li>We</li>
+                        <li>Th</li>
+                        <li>Fr</li>
+                        <li>Sa</li>
+                    </ul>
+                    <ul id="calendarDays" class="days"></ul>
+                </div>
+                <button onclick="toggleCalendarPopup()">Close</button>
+            </div>
+        </div> -->
 
         <!-- 팝업 메시지 -->
         <div id="popup" class="popup">
@@ -48,11 +81,11 @@
             </div>
 
             <div class="taskbar-item" id="start-menu" class="active">
-                <img src="assets/image/windows.png" alt="Start Menu">
-                <img src="assets/image/windows.png" alt="Start Menu">
-                <a href="#" class="popup-btn2"><img src="assets/image/linkedin.png" alt="Start Menu"></a>
-                <img src="assets/image/windows.png" alt="Start Menu">
-                <img src="assets/image/windows.png" alt="Start Menu">
+                <img src="./assets/image/windows.png" alt="Start Menu">
+                <img src="./assets/image/windows.png" alt="Start Menu">
+                <a href="#" class="popup-btn2"><img src="./assets/image/linkedin.png" alt="Start Menu"></a>
+                <img src="./assets/image/windows.png" alt="Start Menu">
+                <img src="./assets/image/windows.png" alt="Start Menu">
             </div>
 
             <div class="taskbar__right">
@@ -78,7 +111,7 @@
                 <div class="card">
                     <div class="card__top">
                         <div class="icon">
-                            <img src="assets/image/youtube.jpg" alt="youtube">
+                            <img src="./assets/image/youtube.jpg" alt="youtube">
                         </div>
                         <div class="card-content">
                             <h2 class="card-title">Youtube_project</h2>
@@ -88,14 +121,14 @@
                     </div>
 
                     <div class="card-image-container">
-                        <img src="assets/image/youtube_project.png" alt="youtube" class="card-image">
+                        <img src="./assets/image/youtube_project.png" alt="youtube" class="card-image">
                     </div>
                 </div>
                 <!-- //1 -->
                 <div class="card">
                     <div class="card__top">
                         <div class="icon">
-                            <img src="assets/image/uniform.png" alt="youtube">
+                            <img src="./assets/image/uniform.png" alt="youtube">
                         </div>
                         <div class="card-content">
                             <h2 class="card-title">School Uniform</h2>
@@ -105,14 +138,14 @@
                     </div>
 
                     <div class="card-image-container">
-                        <img src="assets/image/shcoolmain.png" alt="shcoolmain" class="card-image">
+                        <img src="./assets/image/shcoolmain.png" alt="shcoolmain" class="card-image">
                     </div>
                 </div>
                 <!-- //1 -->
                 <div class="card">
                     <div class="card__top">
                         <div class="icon">
-                            <img src="assets/image/idea.png" alt="youtube">
+                            <img src="./assets/image/idea.png" alt="youtube">
                         </div>
                         <div class="card-content">
                             <h2 class="card-title">DEVELOPER</h2>
@@ -122,14 +155,14 @@
                     </div>
 
                     <div class="card-image-container">
-                        <img src="assets/image/site.png" alt="DEVELOPER" class="card-image">
+                        <img src="./assets/image/site.png" alt="DEVELOPER" class="card-image">
                     </div>
                 </div>
                 <!-- //1 -->
                 <div class="card">
                     <div class="card__top">
                         <div class="icon">
-                            <img src="assets/image/youtube.jpg" alt="youtube">
+                            <img src="./assets/image/youtube.jpg" alt="youtube">
                         </div>
                         <div class="card-content">
                             <h2 class="card-title">Baseball Cuba</h2>
@@ -139,14 +172,14 @@
                     </div>
 
                     <div class="card-image-container">
-                        <img src="assets/image/youtube_project.png" alt="Baseball Cuba" class="card-image">
+                        <img src="./assets/image/youtube_project.png" alt="Baseball Cuba" class="card-image">
                     </div>
                 </div>
                 <!-- //1 -->
                 <div class="card">
                     <div class="card__top">
                         <div class="icon">
-                            <img src="assets/image/youtube.jpg" alt="youtube">
+                            <img src="./assets/image/youtube.jpg" alt="youtube">
                         </div>
                         <div class="card-content">
                             <h2 class="card-title">Baseball Cuba</h2>
@@ -156,14 +189,14 @@
                     </div>
 
                     <div class="card-image-container">
-                        <img src="assets/image/youtube_project.png" alt="Baseball Cuba" class="card-image">
+                        <img src="./assets/image/youtube_project.png" alt="Baseball Cuba" class="card-image">
                     </div>
                 </div>
                 <!-- //1 -->
                 <div class="card">
                     <div class="card__top">
                         <div class="icon">
-                            <img src="assets/image/youtube.jpg" alt="youtube">
+                            <img src="./assets/image/youtube.jpg" alt="youtube">
                         </div>
                         <div class="card-content">
                             <h2 class="card-title">Baseball Cuba</h2>
@@ -173,7 +206,7 @@
                     </div>
 
                     <div class="card-image-container">
-                        <img src="assets/image/youtube_project.png" alt="Baseball Cuba" class="card-image">
+                        <img src="./assets/image/youtube_project.png" alt="Baseball Cuba" class="card-image">
                     </div>
                 </div>
                 <!-- //1 -->
@@ -234,7 +267,7 @@
 
     <script>
         function updateWeather() {
-            const apiKey = ''; // 여기에 실제 API 키를 넣으세요.
+            const apiKey = '49ed9a83b2db5f0ad7930c320ae90df4'; // 여기에 실제 API 키를 넣으세요.
             const city = 'Seoul'; // 원하는 도시명으로 변경 가능
             const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
@@ -282,6 +315,88 @@
         updateTime();
         setInterval(updateTime, 60000);
 
+    </script>
+
+    <script>
+        const today = new Date();
+        let currentMonth = today.getMonth();
+        let currentYear = today.getFullYear();
+        const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+        const monthDropdown = document.getElementById("monthDropdown");
+        const yearDropdown = document.getElementById("yearDropdown");
+
+        function fillDropdowns() {
+            for (let i = 0; i < months.length; i++) {
+                const option = document.createElement("option");
+                option.value = i;
+                option.textContent = months[i];
+                monthDropdown.appendChild(option);
+            }
+
+            for (let i = currentYear - 10; i <= currentYear + 10; i++) {
+                const option = document.createElement("option");
+                option.value = i;
+                option.textContent = i;
+                yearDropdown.appendChild(option);
+            }
+        }
+
+        function updateCalendar() {
+            const selectedMonth = monthDropdown.value;
+            const selectedYear = yearDropdown.value;
+            showCalendar(parseInt(selectedMonth), parseInt(selectedYear));
+        }
+
+        monthDropdown.addEventListener("change", updateCalendar);
+        yearDropdown.addEventListener("change", updateCalendar);
+
+        function showCalendar(month, year) {
+            const calendar = document.getElementById("calendar");
+            calendar.innerHTML = "<ul class='weekdays'>" +
+                "<li>Su</li><li>Mo</li><li>Tu</li><li>We</li><li>Th</li><li>Fr</li><li>Sa</li>" +
+                "</ul>";
+
+            let firstDay = new Date(year, month).getDay();
+            let daysInMonth = 32 - new Date(year, month, 32).getDate();
+
+            let date = 1;
+            for (let i = 0; i < 6; i++) {
+                let row = document.createElement("ul");
+                row.className = "days";
+
+                for (let j = 0; j < 7; j++) {
+                    if (i === 0 && j < firstDay) {
+                        let cell = document.createElement("li");
+                        row.appendChild(cell);
+                    } else if (date > daysInMonth) {
+                        break;
+                    } else {
+                        let cell = document.createElement("li");
+                        cell.innerText = date;
+                        if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
+                            cell.classList.add("bg-info");
+                        }
+                        row.appendChild(cell);
+                        date++;
+                    }
+                }
+
+                calendar.appendChild(row);
+            }
+        }
+
+        function toggleCalendarPopup() {
+            var calendarPopup = document.getElementById("calendarPopup");
+            var isDisplayed = calendarPopup.style.display === "block";
+            calendarPopup.style.display = isDisplayed ? "none" : "block";
+            if (!isDisplayed) {
+                fillDropdowns();
+                showCalendar(currentMonth, currentYear);
+            }
+        }
+
+        document.getElementById("icon-calendar").addEventListener("click", toggleCalendarPopup);
     </script>
 
 </body>
